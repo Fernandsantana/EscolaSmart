@@ -3,20 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EscolaSmart.Models
+namespace EscolaSmart.Dtos
 {
-    public class Professor
+    public class ProfessorRegistrarDto
     {
-        public Professor() {}
-
-        public Professor(int id, int registro, string nome, string sobrenome) 
-        {
-            this.Id = id;
-            this.Registro = registro;
-            this.Nome = nome;
-            this.Sobrenome = sobrenome;
-        }
-
         public int Id { get; set; }
 
         public int Registro { get; set; }
@@ -33,6 +23,5 @@ namespace EscolaSmart.Models
 
         public bool Status { get; set; } = true;
 
-        public IEnumerable<Disciplina> Disciplinas { get; set; }
     }
 }

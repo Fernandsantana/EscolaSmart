@@ -1,3 +1,4 @@
+using AutoMapper;
 using EscolaSmart.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,12 +29,12 @@ namespace EscolaSmart
         {
             services.AddDbContext<DataContext>(context => context.UseSqlite(Configuration.GetConnectionString("Default")));
 
-            //services.AddSingleton<IRepository, Repository>();
-            //services.AddTransient<IRepository, Repository>();
             services.AddScoped<IRepository, Repository>();
 
             services.AddControllers()
                     .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
