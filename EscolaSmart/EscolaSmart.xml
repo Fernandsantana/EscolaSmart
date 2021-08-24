@@ -16,7 +16,7 @@
             <param name="repo"></param>
             <param name="mapper"></param>
         </member>
-        <member name="M:EscolaSmart.V1.Controllers.AlunoController.Get">
+        <member name="M:EscolaSmart.V1.Controllers.AlunoController.Get(EscolaSmart.Helpers.PageParams)">
             <summary>
             Método responsável para retornar todos os meus alunos
             </summary>
@@ -64,6 +64,11 @@
             </summary>
             <param name="id"></param>
             <returns></returns>
+        </member>
+        <member name="T:EscolaSmart.V2.Dtos.AlunoRegistrarDto">
+            <summary>
+            Este é o DTO de Aluno para Registrar.
+            </summary>
         </member>
     </members>
 </doc>

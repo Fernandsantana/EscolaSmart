@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 using EscolaSmart.Models;
 using EscolaSmart.Data;
 using Microsoft.EntityFrameworkCore;
-using EscolaSmart.V1;
 using AutoMapper;
-using EscolaSmart.V1.Dtos;
+using EscolaSmart.V2.Dtos;
 
 namespace EscolaSmart.V2.Controllers
 {

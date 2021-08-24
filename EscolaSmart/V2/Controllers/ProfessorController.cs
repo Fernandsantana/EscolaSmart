@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using EscolaSmart.Data;
-using EscolaSmart.V1;
 using EscolaSmart.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,14 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EscolaSmart.V1.Dtos;
+using EscolaSmart.V2.Dtos;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace EscolaSmart.V1.Controllers
+namespace EscolaSmart.V2.Controllers
 {
     [ApiController]
-    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     
     public class ProfessorController : ControllerBase
@@ -31,9 +30,9 @@ namespace EscolaSmart.V1.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
-            var professores = await _repo.GetAllProfessoresAsync(true);
+            var professores = _repo.GetAllProfessores(true);
 
             return Ok(_mapper.Map<IEnumerable<ProfessorDto>>(professores));
         }
