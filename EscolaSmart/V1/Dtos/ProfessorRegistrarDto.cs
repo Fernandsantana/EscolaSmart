@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EscolaSmart.Dtos
+namespace EscolaSmart.V1.Dtos
 {
     public class ProfessorRegistrarDto
     {

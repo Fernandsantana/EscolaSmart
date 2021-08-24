@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EscolaSmart.Dtos
+namespace EscolaSmart.V1.Dtos
 {
+    /// <summary>
+    /// Este é o DTO de Aluno para Registrar.
+    /// </summary>
     public class AlunoRegistrarDto
     {
         public int Id { get; set; }

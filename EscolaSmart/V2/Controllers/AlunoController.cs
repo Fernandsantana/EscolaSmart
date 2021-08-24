@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 using EscolaSmart.Models;
 using EscolaSmart.Data;
 using Microsoft.EntityFrameworkCore;
-using EscolaSmart.Dtos;
+using EscolaSmart.V1;
 using AutoMapper;
+using EscolaSmart.V1.Dtos;
 
-namespace EscolaSmart.Controllers
+namespace EscolaSmart.V2.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [ApiController]
-    [Route("api/[controller]")]
+    [ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
 
     public class AlunoController : ControllerBase
     {
@@ -20,12 +25,21 @@ namespace EscolaSmart.Controllers
 
         private readonly IMapper _mapper;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="repo"></param>
+        /// <param name="mapper"></param>
         public AlunoController(IRepository repo, IMapper mapper)
         {
             _mapper = mapper;
             _repo = repo;
         }
 
+        /// <summary>
+        /// Método responsável para retornar todos os meus alunos
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -34,12 +48,11 @@ namespace EscolaSmart.Controllers
             return Ok(_mapper.Map<IEnumerable<AlunoDto>>(alunos));
         }
 
-        [HttpGet("getRegister")]
-        public IActionResult GetRegister()
-        {
-            return Ok(new AlunoRegistrarDto());
-        }
-
+        /// <summary>
+        /// Método responsável por retonar apenas um Aluno por meio do código ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -68,27 +81,6 @@ namespace EscolaSmart.Controllers
 
         [HttpPut("{id}")]
         public IActionResult Put(int id, AlunoRegistrarDto model)
-        {
-            var aluno = _repo.GetAllAlunoById(id);
-
-            if (aluno == null)
-            {
-                return BadRequest("Aluno não encontrado");
-            }
-
-            _mapper.Map(model, aluno);
-
-            _repo.Update(aluno);
-            if (_repo.SaveChanges())
-            {
-                return Created($"/api/aluno/{model.Id}", _mapper.Map<AlunoDto>(aluno));
-            }
-
-            return BadRequest("Aluno não atualizado");
-        }
-
-        [HttpPatch("{id}")]
-        public IActionResult Patch(int id, AlunoRegistrarDto model)
         {
             var aluno = _repo.GetAllAlunoById(id);
 

@@ -1,12 +1,14 @@
 ﻿using AutoMapper;
-using EscolaSmart.Dtos;
+using EscolaSmart.V1;
 using EscolaSmart.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EscolaSmart.V1.Dtos;
+using EscolaSmart.Helpers;
 
-namespace EscolaSmart.Helpers
+namespace EscolaSmart.V2.Profiles
 {
     public class EscolaSmartProfile : Profile
     {
