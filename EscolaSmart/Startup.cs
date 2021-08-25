@@ -30,7 +30,7 @@ namespace EscolaSmart
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(context => context.UseSqlite(Configuration.GetConnectionString("Default")));
+            services.AddDbContext<DataContext>(context => context.UseMySql(Configuration.GetConnectionString("MySqlConnection")));
 
             services.AddScoped<IRepository, Repository>();
 
@@ -69,7 +69,7 @@ namespace EscolaSmart
                             Title = "EscolaSmartAPI",
                             Version = description.ApiVersion.ToString(),
                             TermsOfService = new Uri("https://google.com"),
-                            Description = "A descrição da WebAPI da EscolaSmart",
+                            Description = "A descriï¿½ï¿½o da WebAPI da EscolaSmart",
                             License = new Microsoft.OpenApi.Models.OpenApiLicense
                             {
                                 Name = "EscolaSmart Lincese",

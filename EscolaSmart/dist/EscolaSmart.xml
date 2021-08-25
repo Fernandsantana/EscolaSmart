@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EscolaSmart</name>
+    </assembly>
+    <members>
+        <member name="T:EscolaSmart.V1.Controllers.AlunoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EscolaSmart.V1.Controllers.AlunoController.#ctor(EscolaSmart.Data.IRepository,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="repo"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:EscolaSmart.V1.Controllers.AlunoController.Get(EscolaSmart.Helpers.PageParams)">
+            <summary>
+            Método responsável para retornar todos os meus alunos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EscolaSmart.V1.Controllers.AlunoController.GetRegister">
+            <summary>
+            Método responsável por retonar apenas um único AlunoDTO.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EscolaSmart.V1.Controllers.AlunoController.GetById(System.Int32)">
+            <summary>
+            Método responsável por retonar apenas um Aluno por meio do código ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EscolaSmart.V1.Dtos.AlunoRegistrarDto">
+            <summary>
+            Este é o DTO de Aluno para Registrar.
+            </summary>
+        </member>
+        <member name="T:EscolaSmart.V2.Controllers.AlunoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EscolaSmart.V2.Controllers.AlunoController.#ctor(EscolaSmart.Data.IRepository,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="repo"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:EscolaSmart.V2.Controllers.AlunoController.Get">
+            <summary>
+            Método responsável para retornar todos os meus alunos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EscolaSmart.V2.Controllers.AlunoController.GetById(System.Int32)">
+            <summary>
+            Método responsável por retonar apenas um Aluno por meio do código ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EscolaSmart.V2.Dtos.AlunoRegistrarDto">
+            <summary>
+            Este é o DTO de Aluno para Registrar.
+            </summary>
+        </member>
+    </members>
+</doc>
