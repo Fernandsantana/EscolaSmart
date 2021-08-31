@@ -47,12 +47,21 @@ namespace EscolaSmart.V1.Controllers
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            var professor = _repo.GetAllProfessorById(id, false);
+            var professor = _repo.GetAllProfessorById(id, true);
             if (professor == null) return BadRequest("O Professor não foi encontrado");
 
             var professorDto = _mapper.Map<ProfessorDto>(professor);
 
             return Ok(professorDto);
+        }
+
+        [HttpGet("byaluno/{alunoId}")]
+        public IActionResult GetByIdAluno(int alunoId)
+        {
+            var Professores = _repo.GetAllProfessoresByAlunoId(alunoId, true);
+            if (Professores == null) return BadRequest("Professores não encontrados");
+
+            return Ok(_mapper.Map<IEnumerable<ProfessorDto>>(Professores));
         }
 
         [HttpPost]

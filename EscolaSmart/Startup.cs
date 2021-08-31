@@ -90,6 +90,8 @@ namespace EscolaSmart
 
                     options.IncludeXmlComments(xmlCommentsFullPath);
                 });
+
+                services.AddCors();
            
         }
 
@@ -104,6 +106,7 @@ namespace EscolaSmart
             }
 
             app.UseRouting();
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseSwagger().UseSwaggerUI(options =>
             {

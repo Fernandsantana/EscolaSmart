@@ -222,11 +222,11 @@ namespace EscolaSmart.Data
             return await query.ToArrayAsync();
         }
 
-        public Professor GetAllProfessorById(int professorId, bool includeProfessor = false)
+        public Professor GetAllProfessorById(int professorId, bool includeAluno = false)
         {
             IQueryable<Professor> query = _context.Professores;
 
-            if (includeProfessor)
+            if (includeAluno)
             {
                 query = query.Include(p => p.Disciplinas)
                              .ThenInclude(d => d.AlunosDisciplinas)
@@ -238,6 +238,24 @@ namespace EscolaSmart.Data
                          .Where(professor => professor.Id == professorId);
 
             return query.FirstOrDefault();
+        }
+
+        public Professor[] GetAllProfessoresByAlunoId(int alunoId, bool includeAlunos = false)
+        {
+            IQueryable<Professor> query = _context.Professores;
+
+            if (includeAlunos)
+            {
+                query = query.Include(p => p.Disciplinas)
+                             .ThenInclude(d => d.AlunosDisciplinas)
+                             .ThenInclude(ad => ad.Aluno);
+            }
+
+            query = query.AsNoTracking()
+                         .OrderBy(a => a.Id)
+                         .Where(aluno => aluno.Disciplinas.Any(d => d.AlunosDisciplinas.Any(Add => Add.AlunoId == alunoId)));
+
+            return query.ToArray();
         }
 
         public async Task<Professor> GetAllProfessorByIdAsync(int professorId, bool includeProfessor = false)

@@ -34,9 +34,8 @@ namespace EscolaSmart.Data
         Professor[] GetAllProfessoresByDisciplinaId(int disciplinaId, bool includeAlunos = false);
 
         Task<Professor> GetAllProfessorByIdAsync(int professorId, bool includeProfessor = false);
-        Professor GetAllProfessorById(int professorId, bool includeProfessor = false);
+        Professor GetAllProfessorById(int professorId, bool includeAlunos = false);
 
-
-
+        Professor[] GetAllProfessoresByAlunoId(int alunoId, bool includeAlunos = false);
     }
 }
